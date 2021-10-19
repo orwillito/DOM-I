@@ -40,3 +40,95 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+const mainNav = document.querySelectorAll("a");
+
+//For loop used to add each object from the array into the new array like dom object for the Nav bar
+for (let i = 0; i < mainNav.length; i++) {
+  mainNav[i].textContent = siteContent.nav[`nav-item-${i + 1}`];
+}
+
+// New Anchor element
+const newNav1 = document.createElement('a');
+  newNav1.href = "#";
+  newNav1.textContent = "test1";
+
+// New Anchor element
+const newNav2 = document.createElement('a');
+  newNav2.href = "#";
+  newNav2.textContent = "test2";
+
+//Area that the new anchor elements will be put into
+const nav = document.querySelector('nav');
+
+//puts the new elements in the last position in the nav object
+nav.appendChild(newNav1);
+nav.appendChild(newNav2);
+
+const navColor = document.querySelectorAll('a');//grabs all the Anchor tags
+
+//goes through the array of Anchor tags and applies the color green to them
+for(let i = 0; i < navColor.length; i ++){
+  navColor[i].style.color = "green";
+}
+
+//=============================================== CTA
+
+const ctaText = document.querySelector('h1');
+ctaText.textContent = siteContent.cta["h1"];
+
+const ctaButton = document.querySelector('button');
+ctaButton.textContent = siteContent.cta["button"];
+
+const ctaLogo = document.getElementById("cta-img");
+ctaLogo.setAttribute('src', siteContent.cta["img-src"]);
+
+//=============================================== Main Content
+
+const mainTitles = document.querySelectorAll('.main-content h4');
+mainTitles[0].textContent = siteContent["main-content"]["features-h4"];
+mainTitles[1].textContent = siteContent["main-content"]["about-h4"];
+mainTitles[2].textContent = siteContent["main-content"]["services-h4"];
+mainTitles[3].textContent = siteContent["main-content"]["product-h4"];
+mainTitles[4].textContent = siteContent["main-content"]["vision-h4"];
+
+
+const mainPara = document.querySelectorAll('.main-content p');
+mainPara[0].textContent = siteContent["main-content"]["features-content"];
+mainPara[1].textContent = siteContent["main-content"]["about-content"];
+mainPara[2].textContent = siteContent["main-content"]["services-content"];
+mainPara[3].textContent = siteContent["main-content"]["product-content"];
+mainPara[4].textContent = siteContent["main-content"]["vision-content"];
+
+const middleLogo = document.getElementById("middle-img");
+middleLogo.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+//=============================================== Contact
+
+const contTitle = document.querySelector('.contact h4');
+contTitle.textContent = siteContent.contact["contact-h4"];
+
+const contPara = document.querySelectorAll('.contact p');
+contPara[0].textContent = siteContent.contact["address"];
+contPara[1].textContent = siteContent.contact["phone"];
+contPara[2].textContent = siteContent.contact["email"];
+
+
+//=============================================== footer
+
+const footer = document.querySelector('footer p');
+footer.textContent = siteContent.footer["copyright"];
+
+
+//=============================================== Event listener stretch goal
+
+
+//creates a new button that is placed under the original button that triggers the event
+const eventHandler = () => {
+  const newButton = document.createElement('button');
+  newButton.textContent = "Wow!";
+
+  const cta = document.querySelector('.cta-text');
+  cta.appendChild(newButton);
+};
+ctaButton.addEventListener('click', eventHandler);
